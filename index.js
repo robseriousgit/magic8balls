@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var responses = require('./responses')
+//var tf = require('@tensorflow/tfjs')
 
+//console.log(tf)
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/client/index.html'));
