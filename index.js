@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var responses = require('./responses')
-//var tf = require('@tensorflow/tfjs')
+var tf = require('@tensorflow/tfjs')
 
 //console.log(tf)
 
@@ -11,6 +11,26 @@ app.get('/', function(req, res) {
 });
 
 app.use(express.static('client'))
+
+app.get('/foo', function(req, res) {
+
+  require('@tensorflow/tfjs-node');
+
+  // Set the backend to TensorFlow:
+  tf.setBackend('tensorflow');
+
+  const shape = [2, 3]; // 2 rows, 3 columns
+  const a = tf.tensor([1.0, 2.0, 3.0, 10.0, 20.0, 30.0], shape);
+  a.print(); // print Tensor values
+  // Output: [[1 , 2 , 3 ],
+  //          [10, 20, 30]]
+
+  // The shape can also be inferred:
+  const b = tf.tensor([[1.0, 2.0, 3.0], [10.0, 20.0, 30.0]]);
+  b.print();
+
+  res.end('end');
+});
 
 app.get('/ballme/:id', function(req, res) {
   var val = psuedoMaths(req.params.id)

@@ -1,29 +1,34 @@
 $(function() {
   var ball = $('.ball'),
   number = $('.number'),
-  result = $('.result');
+  result = $('.result'),
+  form = $('form'),
+  input = $('input'),
+  numberMoveClass = 'number--move',
+  ballShakeClass = 'ball--shake',
+  resultMoveClass = 'result--move';
 
   function tickleBall() {
-    if (!number.hasClass('number--move')) {
-      ball.addClass('ball--shake');
+    number.removeClass(numberMoveClass);
+    ball.removeClass(ballShakeClass);
+    result.removeClass(resultMoveClass);
+
+    ball.addClass(ballShakeClass);
       
-      setTimeout(function() {
-        number.addClass('number--move');
-        ball.removeClass('ball--shake');
-        result.addClass('result--move');
-      }, 2000);
-    } else {
-      number.removeClass('number--move');
-      ball.removeClass('ball--shake');
-      result.removeClass('result--move');
-    }
+    setTimeout(function() {
+      number.addClass(numberMoveClass);
+      ball.removeClass(ballShakeClass);
+      result.addClass(resultMoveClass);
+    }, 2000);
   }
 
-  var button = $("button")
-  button.on('click', function() {
-    $.get("/ballme/"+$("input").val(), function(data) {
+  form.on('submit', function(e) {
+    e.preventDefault();
+
+    $.get('/ballme/' + input.val(), function(data) {
       result.html(data.result.text);
-      tickleBall()
+      tickleBall();
+      input.val('');
     })
   })
 });

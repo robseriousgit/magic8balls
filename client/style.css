@@ -1,24 +1,47 @@
+* {
+  font-family: arial;
+}
+body {
+  padding: 1em;
+}
+
 #container {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
-  
+  flex-direction: column;
 }
 
-h1, input, button {
-  font-family: arial;
-  font-size: 14px;
+input {
+  border: 2px solid #000;
+  padding: 1em;
+  font-size: 1.5em;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+form {
+  padding: 0;
+  z-index: 1000;
+}
+
+p {
+  font-size: 2em;
 }
 
 .frame {
   display: flex;
-  width: 100wh;
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 120vh;
   align-items: center;
   justify-content: center;
-  font-family: arial;
-  font-size: 14px;
 }
 
 .stage {
@@ -27,6 +50,7 @@ h1, input, button {
   display: block;
   perspective: 1200px;
   perspective-origin: 50% 50%;
+  font-size: 1em;
 }
 
 .ball {
@@ -40,7 +64,6 @@ h1, input, button {
   position: relative;
   overflow: hidden;
   outline: none;
-  cursor: pointer;
 }
 
 .ball--shake {
@@ -98,8 +121,8 @@ h1, input, button {
   color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: calc(70% - 150px);
-  left: calc(70% - 150px);
+  top: calc(70% - 145px);
+  left: calc(70% - 145px);
   align-items: center;
   justify-content: center;
   border: 3px solid #ccc;
