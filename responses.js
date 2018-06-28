@@ -14,7 +14,7 @@ var responses = {
   neutral: [
     { text: "Reply hazy, try again"},
     { text: "Ask again later"},
-    { text: "Without a doubt"},
+    { text: "Maybe.. ask your mum"},
     { text: "Better not tell you now"},
     { text: "Concentrate and ask again"},
   ],

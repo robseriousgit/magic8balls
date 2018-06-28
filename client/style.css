@@ -107,6 +107,8 @@ h1, input, button {
   display: flex;
   font-size: 1.5em;
   transform: translateX(-1000px) scale(.8) skewX(-5deg);
+  padding: 0.5em;
+  box-sizing: border-box;
 }
 
 .result--move {

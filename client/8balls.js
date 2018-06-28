@@ -1,10 +1,9 @@
 $(function() {
-  console.log('?')
   var ball = $('.ball'),
   number = $('.number'),
   result = $('.result');
-  
-  ball.on('click', function() {
+
+  function tickleBall() {
     if (!number.hasClass('number--move')) {
       ball.addClass('ball--shake');
       
@@ -18,14 +17,13 @@ $(function() {
       ball.removeClass('ball--shake');
       result.removeClass('result--move');
     }
-  });
+  }
 
   var button = $("button")
   button.on('click', function() {
     $.get("/ballme/"+$("input").val(), function(data) {
-      console.log(data.result.text)
       result.html(data.result.text);
-      ball.click()
+      tickleBall()
     })
   })
 });
