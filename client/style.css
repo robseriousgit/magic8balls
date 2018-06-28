@@ -1,0 +1,49 @@
+body {
+  font-family: fantasy;
+  text-align: center;
+}
+
+h1 {
+  position: absolute;
+  left:0;
+  right:0;
+  margin: 30px auto;
+  display: block;
+  font-size: 3em;
+}
+
+#d1, #d2, #d3, #d4  {
+  width: 50%;
+  float: left;
+  height: 50%;
+  text-align: center;
+  font-size: 2em;
+  text-align: center;
+  display:block;
+  
+}
+ 
+.pad p {
+    margin-top: 100px;
+    width: 100%;
+    display: block; 
+} 
+
+#d1 {
+  background: #0061ff;
+  color: #ff0000;
+}
+
+#d2 {
+  background: #00ff08;
+  color: #ff00f6
+}
+#d3 {
+  clear:both;
+  background: #ff0000;
+  color: #0061ff;
+}
+#d4 {
+  background: #ff00f6;
+  color: #00ff08;
+}
